@@ -1,19 +1,15 @@
 # mega-s01e03-what-it-shows
 
-MEGA.dev S01E03 delivery: problems found inside support ticket **#4471**, filed as
-GitHub issues, plus a signed kb page about the split.
+MEGA.dev S01E03 delivery.
 
-## Deliverables
+## Tickets
 
-- GitHub issues (one per cause found in #4471), each with the report count
-- `src/routes/kb/incidents/4471-two-causes/+page.svx` — signed page for the desk
-- `desk-view/4471-two-causes.html` — the page as the desk will see it
+GitHub issues in this repo (one per cause in #4471), with report counts.
 
-## Causes in #4471
+## Page
 
-| cause | reports |
-| --- | ---: |
-| parser | 379 |
-| hint | 33 |
+- `.svx`: `support-kb/src/routes/kb/incidents/4471-two-causes/+page.svx`
+- as the desk will see it: `support-kb/src/routes/kb/incidents/4471-two-causes/as-desk-sees-it.html`
+  (also `desk-view/4471-two-causes.html`)
 
-kb export: `kb-export-267efc5e` from the course challenge page.
+kb export: `kb-export-267efc5e`.
