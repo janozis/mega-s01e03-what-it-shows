@@ -11,6 +11,9 @@ signature: Jan Kosmala
   import CauseTable from '#lib/kb/CauseTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  // Same string as frontmatter `signature` — required for <RenderStamp {signature} />.
+  const signature = 'Jan Kosmala';
 </script>
 
 Ticket **#4471** was marked known as one parser bug. The merge put **two** causes in
