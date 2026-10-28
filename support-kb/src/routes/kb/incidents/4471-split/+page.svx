@@ -1,0 +1,60 @@
+---
+layout: runbook
+title: '#4471 · two problems, not one'
+owner: Jan Kosmala
+status: closed
+reviewed: 2026-10-28
+signature: v1.eyJzdWIiOiIxNDQ1IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMxOTk1ODksImV4cCI6MTc5MzI4NTk4OX0.zKXsRdR_rRg30q1bUJIkfpOcJwP7C02X_TXykMCVbS4
+---
+
+<script>
+  import ProblemCounts from '#lib/kb/ProblemCounts.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The [#4471 incident page](/kb/incidents/4471) says one bug, one fix. The reports say otherwise.
+Ticket #4471 holds two different problems. Fixing the parser closes only the first.
+
+<Callout kind="warn">
+Not one issue. Merging by subject line (<a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a>)
+put reports with different causes into one ticket. The parser fix will not close the second.
+</Callout>
+
+## The two problems
+
+<ProblemCounts ticket={4471} />
+
+1. **Parser reads dates month first.** Tenants that write the day first see day and month
+   swapped. This is the bug the desk already knew about. It covers most of the reports.
+2. **The booking-v3 form hint says `MM/DD/YYYY`.** The form tells people to type the month
+   first, and the tenant then reads it day first. The parser fix does not touch this: the
+   hint text and the form need their own change. These reports all arrived through the form.
+
+## How the reports were sorted
+
+- **One id, one report.** The ticket system exports in overlapping pages, so the same report
+  can come twice. The counts use each id once.
+- **The tenant decides the cause, not intake.** `intakeTag` is a guess made from the
+  reporter's browser. The tenant's locale and booking form say which bug it was.
+- **A report counts where it is filed.** A few reports read as a one-day move, not a swap.
+  They stay under the cause of their tenant, and the table footnotes them.
+
+<CauseTable ticket={4471} />
+
+## Outcome
+
+Engineering closed #4471 on 5 October.
+
+- **Parser: fixed.** The fix is `fix(dates): parse dd/mm for eu locales`.
+- **Booking-v3 form hint: won't fix.** The booking-v3 form was retired, so the hint no longer ships.
+
+## What to do
+
+- Keep the parser fix on its ticket, and count only the parser reports against it.
+- Open a separate ticket for the booking-v3 form hint.
+- Ask the reporters of the one-day moves for the booking time and time zone.
+- When the desk merges, look at the tenant and the channel as well as the subject line.
+
+<RenderStamp {signature} />
