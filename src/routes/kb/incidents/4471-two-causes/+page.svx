@@ -44,5 +44,4 @@ Two problems, two tickets. #4471 was never only one bug.
 - **parser** — fixed
 - **hint** — won't fix
 
-<!-- desk ref DR-7FHC-1Q6R -->
 <RenderStamp {signature} />
