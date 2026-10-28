@@ -36,7 +36,14 @@ the same ticket. Subject-line dedupe never asked which cause a report had.
 
 ## Filed
 
-- [#1 parser — 379 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/1)
-- [#2 hint — 33 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/2)
+- [#1 parser — 379 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/1) —
+  closed **completed** after `fix(dates): parse dd/mm for eu locales`
+- [#2 hint — 33 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/2) —
+  closed **not planned**; booking-v3 form retired
+
+## Desk update · #4471 closed 05 Oct
+
+- **parser** — fixed
+- **hint** — won't fix
 
 <RenderStamp signature="Jan Kosmala" />
