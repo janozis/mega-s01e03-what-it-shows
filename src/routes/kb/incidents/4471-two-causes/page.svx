@@ -1,0 +1,51 @@
+---
+layout: runbook
+title: '#4471 · two causes under one ticket'
+owner: Jan Kosmala
+status: living
+reviewed: 2026-10-28
+signature: Jan Kosmala
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  let { signature }: { signature: string } = $props();
+</script>
+
+Ticket **#4471** was marked known as one parser bug. The merge put **two** causes in
+the same ticket. Subject-line dedupe never asked which cause a report had.
+
+## What is in #4471
+
+<CauseTable ticket={4471} />
+
+## The split
+
+- **`parser`** — the shared parser reads every date month first. Day-first tenants
+  (booking-v2, and booking-v3 when the channel is not the form) get the month and day
+  flipped. This is the cause #4471 was opened for.
+- **`hint`** — on booking-v3 the form prints `MM/DD/YYYY`. Day-first people type what
+  the hint says; the form then reads the value the tenant's way. That is a different
+  bug. It has no ticket of its own.
+
+<Callout kind="warn">
+#4471 stays the parser ticket. Open a separate ticket for `hint`. Do not keep merging
+`hint` reports into #4471.
+</Callout>
+
+## Filed
+
+- [#1 parser — 379 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/1) —
+  closed **completed** after `fix(dates): parse dd/mm for eu locales`
+- [#2 hint — 33 reports](https://github.com/janozis/mega-s01e03-what-it-shows/issues/2) —
+  closed **not planned**; booking-v3 form retired
+
+## Desk update · #4471 closed 05 Oct
+
+- **parser** — fixed
+- **hint** — won't fix
+
+<RenderStamp {signature} />
