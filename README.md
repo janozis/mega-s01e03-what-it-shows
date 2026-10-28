@@ -1,14 +1,21 @@
 # mega-s01e03-what-it-shows
 
-MEGA.dev S01E03 delivery.
+MEGA.dev S01E03 · what it shows
 
-## Tickets
+Signed kb page desk ref: **DR-7FHC-1Q6R** (signature: Jan Kosmala)
 
-One GitHub issue per cause found in #4471, with report counts (see Issues).
+## Tickets (problems in #4471)
 
-## Page (signed)
+| issue | cause | reports | close reason |
+| --- | --- | ---: | --- |
+| [#1](https://github.com/janozis/mega-s01e03-what-it-shows/issues/1) | parser | 379 | completed |
+| [#2](https://github.com/janozis/mega-s01e03-what-it-shows/issues/2) | hint | 33 | not_planned |
 
-- `src/routes/kb/incidents/4471-two-causes/page.svx` (same as `+page.svx`)
-- as the desk will see it: `src/routes/kb/incidents/4471-two-causes/as-desk-sees-it.html`
+## Page
 
-Also under `support-kb/` (export layout) and `desk-view/4471-two-causes.html`.
+- `.svx`: [src/routes/kb/incidents/4471-two-causes/page.svx](src/routes/kb/incidents/4471-two-causes/page.svx)
+- as the desk will see it: [src/routes/kb/incidents/4471-two-causes/as-desk-sees-it.html](src/routes/kb/incidents/4471-two-causes/as-desk-sees-it.html)
+
+```
+desk ref DR-7FHC-1Q6R
+```
